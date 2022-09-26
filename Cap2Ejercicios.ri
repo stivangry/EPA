@@ -1,0 +1,365 @@
+
+1. Escriba un programa que le permita al robot recoger una flor de la esquina (2,84) si 
+existe.
+
+programa Cap2Ejercicio1
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(2,84)
+	  si (HayFlorEnLaEsquina)
+	    tomarFlor
+  fin
+variables
+  robert: robot1
+comenzar
+  AsignarArea (robert,ciudad)
+  Iniciar (robert,1,1)
+fin
+
+2. Escriba un programa que le permita al robot recorrer la calle 50 desde la avenida 65 
+hasta la avenida 23 depositando un papel en cada esquina. Debe avanzar hasta el 
+final aunque durante el recorrido se quede sin papeles.
+
+programa Cap2Ejercicio2
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(65,50)
+    repetir 3
+      derecha
+    repetir 42
+      si (HayPapelEnLaBolsa)
+        depositarPapel
+      mover
+      si (HayPapelEnLaBolsa)
+        depositarPapel
+  fin
+variables
+  robert: robot1
+comenzar
+  AsignarArea (robert,ciudad)
+  Iniciar (robert,1,1)
+fin
+
+
+3. Escriba un programa que le permita al robot recorrer el perímetro del cuadrado 
+determinado por (1,1) y (2,2).
+
+programa Cap2Ejericicio3
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 4
+      mover   
+      derecha
+  fin
+variables
+  robert: robot1
+comenzar
+  AsignarArea (robert,ciudad)
+  Iniciar (robert,1,1)
+fin
+
+4. Modificar el ejercicio 3. para que además recoja, de ser posible, un papel en cada 
+esquina.
+
+programa Cap2Ejericicio4
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 4
+      si (HayPapelEnLaEsquina)
+        tomarPapel
+      mover
+      derecha
+    si (HayPapelEnLaEsquina)
+      tomarPapel
+  fin
+variables
+  robert: robot1
+comenzar
+  AsignarArea (robert,ciudad)
+  Iniciar (robert,1,1)
+fin
+
+5. Escriba un programa que le permita al robot dejar todas las flores que lleva en su 
+bolsa en la esquina (50,50).
+
+programa Cap2Ejercicio5
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 49
+      mover
+    derecha
+    repetir 49
+      mover
+    mientras (HayFlorEnLaBolsa)
+      depositarFlor
+    Informar (PosAv, PosCa)
+  fin
+variables
+  robert: robot1
+comenzar
+  AsignarArea (robert,ciudad)
+  Iniciar (robert,1,1)
+fin
+
+6. Escriba un programa que le permita al robot recorrer la avenida 75 desde la calle 45 
+hasta la calle 15 recogiendo todas las flores que encuentre.
+
+programa Cap2Ejercicio6
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos (72,45)
+    repetir 2
+      derecha
+    repetir 29
+      si (HayFlorEnLaEsquina)
+        tomarFlor
+      mover
+    si (HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+variables
+  robert: robot1
+comenzar
+  AsignarArea (robert,ciudad)
+  Iniciar (robert,1,1)
+fin
+
+7. Escriba un programa que le permita al robot recorrer la avenida 10, depositando una 
+flor en cada esquina. Si en algún momento del recorrido se queda sin flores en la 
+bolsa, debe seguir caminando (sin depositar) hasta terminar la avenida.
+
+programa Cap2Ejercicio7
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos (10,1)
+    repetir 99
+      si (HayFlorEnLaBolsa)
+        depositarFlor
+      mover
+    si (HayFlorEnLaBolsa)
+      depositarFlor
+  fin
+variables
+  Rinfo: robot1
+comenzar
+  AsignarArea (Rinfo,ciudad)
+  Iniciar (Rinfo,1,1)
+fin
+
+8. Escriba un programa que le permita al robot recorrer la avenida 23 buscando una 
+esquina sin papeles que seguro existe. Al encontrarla debe depositar, en esa esquina, 
+todos los papeles que lleva en su bolsa. Informar en que calle dejó los papeles.
+
+programa Cap2Ejercicio8
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos (23, 1)
+    mientras (HayPapelEnLaEsquina)
+      mover
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+    Informar (PosAv, PosCa)
+  fin
+variables
+  ronaldiñosoccer: robot1
+comenzar
+  AsignarArea (ronaldiñosoccer,ciudad)
+  Iniciar (ronaldiñosoccer,1,1)
+fin
+
+9. Escriba un programa que le permita al robot recorrer la calle 17 depositando un papel 
+en las avenidas impares. El recorrido termina cuando el robot llega a la esquina 
+(100,17). 
+
+programa Cap2Ejercicio9
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(1,17)
+    derecha
+    repetir 49
+      si (HayPapelEnLaBolsa)
+        depositarPapel
+      mover
+      mover
+    si (HayPapelEnLaBolsa)
+      depositarPapel
+    mover
+  
+  fin
+variables
+  robert: robot1
+comenzar
+  AsignarArea (robert,ciudad)
+  Iniciar (robert,1,1)
+fin
+
+10. Programe al robot para que recorra las 5 primeras avenidas juntando en cada esquina 
+todas las flores y papeles.
+
+Forma1
+
+programa Cap2Ejericicio10.1
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 2 
+      repetir 99
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+        mover
+      mientras (HayPapelEnLaEsquina)
+        tomarPapel
+      mientras (HayFlorEnLaEsquina)
+        tomarFlor
+      derecha
+      mover
+      derecha
+      repetir 99
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+        mover
+      mientras (HayPapelEnLaEsquina)
+        tomarPapel
+      mientras (HayFlorEnLaEsquina)
+        tomarFlor
+      repetir 3
+        derecha
+      mover
+      repetir 3
+        derecha
+    repetir 99
+      mientras (HayPapelEnLaEsquina)
+        tomarPapel
+      mientras (HayFlorEnLaEsquina)
+        tomarFlor
+      mover
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+variables
+  robert: robot1
+comenzar
+  AsignarArea (robert,ciudad)
+  Iniciar (robert,1,1)
+fin
+
+Forma2
+
+programa Cap2Ejercicio10.2
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 5
+      repetir 99
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+        mover
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+      si (PosAv<5)
+        Pos(PosAv+ 1,1)
+  fin
+variables
+  Rinfo: robot1
+comenzar
+  AsignarArea (Rinfo,ciudad)
+  Iniciar (Rinfo,1,1)
+fin
+
+11. Programe al robot para que recorra el perímetro de la ciudad recogiendo todas las 
+flores y papeles que encuentre y dejando en cada vértice solo un papel. Puede ocurrir 
+que algún vértice quede vacío si el robot no tiene papeles en su bolsa para depositar.
+
+programa Cap2Ejercicio11
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 4
+      si(HayFlorEnLaBolsa)
+        depositarFlor
+      repetir 99
+        mover
+        mientras (HayFlorEnLaEsquina)
+          tomarFlor
+        mientras (HayPapelEnLaEsquina)
+          tomarPapel
+      derecha
+    si (HayFlorEnLaBolsa)
+      depositarFlor
+  fin
+variables
+  Rinfo: robot1
+comenzar
+  AsignarArea(Rinfo,ciudad)
+  Iniciar(Rinfo,1,1)
+fin
+
+12. Programe al robot para que recorra todas las calles depositando en cada esquina vacía 
+un papel. En caso de no tener más papeles debe continuar el recorrido (sin depositar).
+
+programa Cap2Ejercicio12
+areas
+  ciudad: AreaC (1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    derecha
+    repetir 100
+      repetir 99
+        si ~(HayPapelEnLaEsquina) & ~(HayFlorEnLaEsquina) & (HayPapelEnLaBolsa)
+          depositarPapel
+        mover
+      si ~(HayPapelEnLaEsquina) & ~(HayFlorEnLaEsquina) & (HayPapelEnLaBolsa)
+        depositarPapel
+      si (PosCa<=99)    
+        Pos(1, PosCa+1)    
+  fin
+variables
+  steven: robot1
+comenzar
+  AsignarArea (steven,ciudad)
+  Iniciar (steven,1,1)
+fin
